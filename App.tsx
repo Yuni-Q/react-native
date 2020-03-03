@@ -1,68 +1,28 @@
-import React from "react";
-import { AppLoading } from "expo";
-import {
-  Container,
-  Text,
-  Header,
-  Title,
-  Content,
-  Footer,
-  FooterTab,
-  Button,
-  Left,
-  Right,
-  Body,
-  Icon
-} from "native-base";
-import * as Font from "expo-font";
-import { Ionicons } from "@expo/vector-icons";
+import Main from "./components/Main";
+import Onboard from "./components/Onboard";
+import React, { useState } from "react";
+import { AsyncStorage, SafeAreaView, StyleSheet } from "react-native";
 
-export default class App extends React.Component<{}, { isReady: boolean }> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isReady: false
-    };
+const App = () => {
+  const [first, setFirst] = useState(AsyncStorage.getItem("first"));
+  AsyncStorage.clear();
+
+  console.log(123, first);
+  return (
+    <SafeAreaView style={styles.container}>
+      {first ? <Main /> : <Onboard setFirst={setFirst} />}
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    color: "#fff",
+    flex: 1,
+    backgroundColor: "black",
+    alignItems: "center",
+    justifyContent: "space-between"
   }
+});
 
-  async componentDidMount() {
-    await Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-      ...Ionicons.font
-    });
-    this.setState({ isReady: true });
-  }
-
-  render() {
-    if (!this.state.isReady) {
-      return <AppLoading />;
-    }
-
-    return (
-      <Container>
-        <Header>
-          <Left>
-            <Button transparent>
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right />
-        </Header>
-        <Content>
-          <Text>This is Content Section</Text>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button full>
-              <Text>Footer</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
-    );
-  }
-}
+export default App;
