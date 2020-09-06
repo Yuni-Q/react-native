@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>938345031982-2p7t2b0rj9al14a4re0ec96qnsph69p0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.938345031982-2p7t2b0rj9al14a4re0ec96qnsph69p0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAI0WbtkRxKa9uckgnOdLhK3YWmmjSqm5o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>938345031982</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ahubsu.moti</string>
+	<key>PROJECT_ID</key>
+	<string>moti-15181</string>
+	<key>STORAGE_BUCKET</key>
+	<string>moti-15181.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:938345031982:ios:b49410269ccf2d6b48f2bf</string>
+	<key>DATABASE_URL</key>
+	<string>https://moti-15181.firebaseio.com</string>
+</dict>
+</plist>
