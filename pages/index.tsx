@@ -4,8 +4,6 @@ import Answer from '../models/Answer';
 import User from '../models/User';
 import Cookie from '../utils/Cookie';
 import { consoleError } from '../utils/log';
-import { redirectLogin } from '../utils/redirect';
-import { PageContext } from './_app';
 
 interface Props {
 	answers: Answer[];
