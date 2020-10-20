@@ -5,11 +5,12 @@ import React, {
 
 // 상태를 위한 타입
 type State = {
-	token: string;
+	accessToken: string;
+	refreshToken: string;
 };
 
 // 모든 액션들을 위한 타입
-type Action = { type: 'SET_TOKEN'; token: string };
+type Action = { type: 'SET_TOKEN'; accessToken: string; refreshToken: string; };
 
 // 디스패치를 위한 타입 (Dispatch 를 리액트에서 불러올 수 있음), 액션들의 타입을 Dispatch 의 Generics로 설정
 type MyDispatch = Dispatch<Action>;
@@ -24,7 +25,8 @@ function reducer(state: State, action: Action): State {
 		case 'SET_TOKEN':
 			return {
 				...state,
-				token: action.token,
+				accessToken: action.accessToken,
+				refreshToken: action.refreshToken,
 			};
 		default:
 			throw new Error('Unhandled action');
@@ -33,7 +35,8 @@ function reducer(state: State, action: Action): State {
 
 export function Provider({ children }: { children: any }) {
 	const [state, dispatch] = useReducer(reducer, {
-		token: '',
+		accessToken: '',
+		refreshToken: '',
 	});
 
 	return (

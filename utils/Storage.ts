@@ -1,13 +1,13 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from "@react-native-community/async-storage";
 
 class Storage {
-  static async getToken () {
-    const data = await AsyncStorage.getItem('token');
+  static async getKey (key: string) {
+    const data = await AsyncStorage.getItem(key);
     return data;
   }
 
-  static async setToken (token: string) {
-    const data = await AsyncStorage.setItem('token', token);
+  static async setKey (key: string, value: any) {
+    const data = await AsyncStorage.setItem(key, value);
     return data;
   }
 }

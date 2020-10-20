@@ -1,19 +1,14 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import React, { useEffect, useState } from 'react';
-import { ImageBackground, SafeAreaView, Text, View } from 'react-native';
-import Login from './pages/login';
-import { Provider, useContextDispatch, useContextState } from './utils/Context';
-import Storage from './utils/Storage';
-
-import splash from './assets/splash.png'
+import React from 'react';
 import Main from './Main';
+import { Provider } from './utils/Context';
+
 declare const global: {HermesInternal: null | {}};
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  
+  // AsyncStorage.clear();
   return (
     <Provider>
       <Main />

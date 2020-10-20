@@ -3,7 +3,6 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 import dayjs from 'dayjs';
 import { IncomingMessage } from 'http';
 import QueryString from 'querystring';
-import Cookie from './Cookie';
 import { LocalCacheWithTTL } from './LocalCache';
 import { consoleError } from './log';
 import MemoryCache from './MemoryCache';
@@ -165,26 +164,26 @@ export default class API<EXTRA = {}> {
 				);
 			})
 			.catch(async (result: AxiosError<APIGatewayResponse<T>> | string) => {
-				if((result as any)?.response?.data?.status === 1100) {
-					try {
-						const { req } = opt?.extra as any;
-						const token = await Cookie.getRefreshToken(req);
-						const tokenResult = await axios.post('https://moti.company/api/v1/signin/refresh', {}, {
-							headers: { Authorization: token },
-						})
-						const {accessToken, refreshToken} = tokenResult.data.data
-						if(refreshToken){
-							Cookie.setRefreshToken({token: refreshToken});
-						}
-						if(accessToken) {
-							Cookie.setToken({token: accessToken});
-							return this.call(method, url, data, {...opt, headers: {...opt.headers, Authorization: accessToken }});
-						}
-					} catch(error) {
-						consoleError('catch', error);
-					}
+				// if((result as any)?.response?.data?.status === 1100) {
+				// 	try {
+				// 		const { req } = opt?.extra as any;
+				// 		const token = await Cookie.getRefreshToken(req);
+				// 		const tokenResult = await axios.post('https://moti.company/api/v1/signin/refresh', {}, {
+				// 			headers: { Authorization: token },
+				// 		})
+				// 		const {accessToken, refreshToken} = tokenResult.data.data
+				// 		if(refreshToken){
+				// 			Cookie.setRefreshToken({token: refreshToken});
+				// 		}
+				// 		if(accessToken) {
+				// 			Cookie.setToken({token: accessToken});
+				// 			return this.call(method, url, data, {...opt, headers: {...opt.headers, Authorization: accessToken }});
+				// 		}
+				// 	} catch(error) {
+				// 		consoleError('catch', error);
+				// 	}
 					
-				}
+				// }
 				await this.options?.onError?.(result);
 
 				if (typeof result === 'string') {
