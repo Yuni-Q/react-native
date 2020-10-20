@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>938345031982-2p7t2b0rj9al14a4re0ec96qnsph69p0.apps.googleusercontent.com</string>
+	<string>507319569465-1flqlee8i4s4c21q3vldbhccdldlffpo.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.938345031982-2p7t2b0rj9al14a4re0ec96qnsph69p0</string>
+	<string>com.googleusercontent.apps.507319569465-1flqlee8i4s4c21q3vldbhccdldlffpo</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAI0WbtkRxKa9uckgnOdLhK3YWmmjSqm5o</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ahubsu.moti</string>
+	<string>host.exp.exponent</string>
 	<key>PROJECT_ID</key>
 	<string>moti-15181</string>
 	<key>STORAGE_BUCKET</key>

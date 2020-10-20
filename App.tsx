@@ -1,57 +1,34 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, SafeAreaView, StyleSheet } from 'react-native';
-import Login from './components/Login';
-import Main from './components/Main';
-import Onboard from './components/Onboard';
-import axios from 'axios';
+import { ImageBackground, SafeAreaView, Text, View } from 'react-native';
+import Login from './pages/login';
+import { Provider, useContextDispatch, useContextState } from './utils/Context';
+import Storage from './utils/Storage';
+
+import splash from './assets/splash.png'
+import Main from './Main';
+declare const global: {HermesInternal: null | {}};
+
+const Stack = createStackNavigator();
 
 const App = () => {
-  const [token, setToken] = useState('');
-  const [first, setFirst] = useState('');
-  useEffect(() => {
-    AsyncStorage.getItem('token').then((token) => {
-      if (!!token) {
-        setToken(token);
-        getMyInfo(token);
-      }
-    });
-    AsyncStorage.getItem('first').then((first) => {
-      if (!!first) {
-        setFirst(first);
-      }
-    });
-  }, [token]);
-
-  const getMyInfo = async (token) => {
-    try {
-      const result = await axios.get('https://moti.company/api/v1/users/my', {
-        headers: { Authorization: token },
-      });
-      const info = result.data.data;
-      await AsyncStorage.setItem('my', JSON.stringify(info));
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  // AsyncStorage.clear();
-
-  if (!token) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Login setToken={setToken} />
-      </SafeAreaView>
-    );
-  }
-  return <SafeAreaView style={styles.container}>{!!first ? <Main /> : <Onboard setFirst={setFirst} />}</SafeAreaView>;
+  
+  return (
+    <Provider>
+      <Main />
+    </Provider>
+    // <SafeAreaView>
+      // <NavigationContainer>
+      //   <Stack.Navigator>
+      //     <Stack.Screen name="Login" component={Login} options={{ title: '로그인' }} />
+      //     {/* <Stack.Screen name="Main" component={Main} options={{ title: '메인' }} /> */}
+      //     {/* <Stack.Screen name="Detail" component={Detail} /> */}
+      //     {/* <Stack.Screen name="Form" component={Form} options={{ title: '일기 작성' }} /> */}
+      //   </Stack.Navigator>
+      // </NavigationContainer>
+      // </SafeAreaView>
+  );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-});
 
 export default App;

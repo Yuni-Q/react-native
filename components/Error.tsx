@@ -1,46 +1,50 @@
+import { useRouter } from 'next/router';
 import React from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyledBody, StyledBottomButton, StyledImg } from './style/StyledComponent';
 
-interface Props {
-  internet?: boolean;
+const getText = (errorMessage?: string) => {
+	if(errorMessage) {
+		return '알 수 없는 오류가 발생했습니다.'
+	}
+	return (
+		<>
+			인터넷이 불안정해요.
+			<br />
+			확인 후 재접속 해주세요.
+		</>
+	)
+
 }
 
-const Error: React.FC<Props> = ({ internet }) => {
-  return (
-    <View style={{ display: 'flex', alignItems: 'center' }}>
-      <Image
-        source={internet ? require('../assets/images/internet.png') : require('../assets/images/unknownError.png')}
-        style={internet ? { width: 114, height: 114 } : { width: 178, height: 178 }}
-      />
-      <Text
-        style={{
-          color: '#f1dbcd',
-          marginTop: 16,
-          fontSize: 14,
-          lineHeight: 26,
-          textAlign: 'center',
-        }}
-      >
-        {internet ? '인터넷이 불안정해요.\n확인 후 재접속 해주세요.' : '알 수 없는 오류가 발생했습니다.'}
-      </Text>
-      <TouchableOpacity
-        style={{
-          backgroundColor: '#fff',
-          width: 112,
-          height: 40,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: 20,
-          marginTop: 32,
-          shadowColor: '#fcdee3',
-          shadowOpacity: 10,
-        }}
-      >
-        <Text style={{ color: '#d4a17d' }}>재접속</Text>
-      </TouchableOpacity>
-    </View>
-  );
+interface Props {
+	errorMessage?: string;
+}
+
+const Error: React.FC<Props> = ({ errorMessage }) => {
+	const router = useRouter();
+
+	const onClick = () => router.reload();
+
+	return (
+		<StyledBody className="justify-content-center">
+			<div>
+				<StyledImg
+					width={errorMessage ? "178" : "114"}
+					height={errorMessage ? "178" : "114"}
+					src={errorMessage ? '/assets/images/unknownError.png' : '/assets/images/internet.png'}
+					alt="error"
+				/>
+			</div>
+			<div>
+				<div className="text-align-center mt-6 mb-8">
+					{getText(errorMessage)}
+				</div>
+			</div>
+			<StyledBottomButton type="button" width={112} onClick={onClick}>
+				재접속
+			</StyledBottomButton>
+		</StyledBody>
+	);
 };
 
 export default Error;

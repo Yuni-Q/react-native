@@ -8,8 +8,11 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@invertase/react-native-apple-authentication": "^0.2.0",
-    "@react-native-community/async-storage": "^1.8.0",
+    "@babel/runtime": "^7.12.1",
+    "@react-native-community/async-storage": "^1.12.0",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.7.6",
+    "@react-navigation/stack": "^5.9.3",
     "@types/node": "^13.7.6",
     "axios": "^0.19.2",
     "expo": "~36.0.0",
@@ -17,22 +20,24 @@
     "expo-font": "~8.0.0",
     "expo-google-app-auth": "^8.1.0",
     "expo-google-sign-in": "~8.0.0",
-    "firebase": "^7.14.0",
+    "firebase": "^7.24.0",
     "moment": "^2.24.0",
-    "native-base": "^2.13.8",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-app-intro-slider": "^3.0.0",
-    "react-native-screens": "2.0.0-alpha.12",
-    "react-native-web": "~0.11.7"
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-safe-area-context": "^3.1.8",
+    "react-native-screens": "^2.0.0-alpha.12",
+    "react-native-web": "~0.11.7",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.12.1",
     "@types/react": "^16.9.23",
     "@types/react-native": "~0.60.23",
     "babel-preset-expo": "~8.0.0",
-    "typescript": "~3.6.3"
+    "typescript": "^3.9.7"
   },
   "private": true
 }

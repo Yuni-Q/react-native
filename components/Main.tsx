@@ -1,71 +1,82 @@
-import moment from 'moment';
-import React from 'react';
-import { Image, Text, View } from 'react-native';
+import dayjs from 'dayjs';
+import { NextPage } from 'next';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import Answer from '../models/Answer';
+import Cookie from '../utils/Cookie';
+import AnswerComponent from './AnswerComponent';
 import Error from './Error';
+import Motivation from './Motivation';
+import Onboard from './Onboard';
+import { StyledDotButton, StyledDotWrapper, StyledFooter, StyledImg, StyledWrapper } from './style/StyledComponent';
 
-const Main = () => {
-  // AsyncStorage.setItem("key", "savingData");
-  // AsyncStorage.getAllKeys();
-  // AsyncStorage.getAllKeys((err, keys) => {
-  //   AsyncStorage.multiGet(keys, (err, stores) => {
-  //     stores.map((result, i, store) => {
-  //       // get at each store's key/value so you can work with it
-  //       let key = store[i][0];
-  //       let value = store[i][1];
-  //     });
-  //   });
-  // });
+interface Props {
+	answers: Answer[];
+	isTodayAnswer: boolean;
+}
 
-  // AsyncStorage.mergeItem("dbKey", "savingData");
+const Main: NextPage<Props> = () => {
+	const [step, setStep] = useState(1);
+	const [errorMessage] = useState('');
 
-  return (
-    <>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          width: '100%',
-        }}
-      >
-        {[1, 2, 3, 4, 5, 6].map((num) => {
-          return (
-            <View key={num}>
-              <Text style={{ color: '#d4a17d' }}>{num}th</Text>
-              <View
-                style={{
-                  width: 16,
-                  height: 16,
-                  borderRadius: 16,
-                  backgroundColor: '#d4a17d',
-                  marginTop: 8,
-                }}
-              />
-            </View>
-          );
-        })}
-      </View>
-      <Error internet />
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          width: '100%',
-        }}
-      >
-        <View>
-          <Image source={require('../assets/images/normal.png')} style={{ width: 24, height: 24 }} />
-        </View>
-        <View>
-          <Text style={{ color: '#d4a17d', fontSize: 20, lineHeight: 36 }}>{moment().format('YYYY. MM. DD')}</Text>
-        </View>
-        <View>
-          <Image source={require('../assets/images/icProfileToucharea.png')} style={{ width: 24, height: 24 }} />
-        </View>
-      </View>
-    </>
-  );
+	const onChageStep = (newStep: number) => {
+		setStep(newStep)
+	}
+
+	if (!Cookie.getOnboard() && step <= 4) {
+		return <Onboard step={step} onChageStep={onChageStep} />;
+	}
+	
+	return (
+		<StyledWrapper>
+			<MainDot answers={answers} />
+			{errorMessage && <Error errorMessage={errorMessage} />}
+			{!errorMessage && !isTodayAnswer && <Motivation />}
+			{!!isTodayAnswer && <AnswerComponent answers={answers} />}
+			<StyledFooter>
+				<div>
+					<Link href="/album">
+						<a>
+							<StyledImg src="/assets/images/normal.png" width="24" height="24" alt="normal" />
+						</a>
+					</Link>
+				</div>
+				<div className="h3">
+					<span>{dayjs().format('YYYY. MM. DD')}</span>
+				</div>
+				<div>
+					<Link href="/my">
+						<a>
+							<StyledImg src="/assets/images/icProfileToucharea.png" width="24" height="24" alt="icProfileToucharea" />
+						</a>
+					</Link>
+				</div>
+			</StyledFooter>
+		</StyledWrapper>
+	);
 };
 
 export default Main;
+
+interface MainDotProps {
+	answers: Answer[];
+}
+
+const MainDot: React.FC<MainDotProps> = ({answers}) => {
+	return (
+		<StyledDotWrapper>
+			{[1, 2, 3, 4, 5, 6].map((num, index) => {
+				return (
+					<div className="my-4 mx-4" key={num}>
+						<div className="text-center">{num}th</div>
+						<StyledDotButton
+							type="button"
+							key={num}
+							active={!!answers[index]}
+						/>
+					</div>
+				);
+			})}
+		</StyledDotWrapper>
+	)
+}

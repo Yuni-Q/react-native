@@ -2,7 +2,6 @@ import * as Google from 'expo-google-app-auth';
 import React from 'react';
 import { Dimensions, Image, Linking, Text, TouchableOpacity, View, AsyncStorage } from 'react-native';
 import axios from 'axios';
-import config from '../config/config.json';
 
 interface Props {
   setToken: (token: string) => void;
@@ -13,7 +12,7 @@ const Login: React.FC<Props> = ({ setToken }) => {
   const login = async () => {
     try {
       const googleData = await Google.logInAsync({
-        clientId: config.clientId,
+        clientId: '507319569465-1flqlee8i4s4c21q3vldbhccdldlffpo.apps.googleusercontent.com',
         scopes: ['profile', 'email'],
       });
       if (googleData.type === 'success') {
