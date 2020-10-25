@@ -1,5 +1,5 @@
 import React from 'react';
-import Cookie from '../utils/Cookie';
+import { View } from 'react-native';
 import { StyldHeader, StyledDotButton, StyledImg, StyledWrapper } from './style/StyledComponent';
 
 const getImage = (step: number) => {
@@ -73,7 +73,7 @@ interface Props {
 const Onboard: React.FC<Props> = ({ step, onChageStep }) => {
 	const onChagne = () => {
 		if (step >= 4) {
-			Cookie.setOnboard({});
+			// Cookie.setOnboard({});
 		}
 		onChageStep(step + 1);
 	}
@@ -85,12 +85,14 @@ const Onboard: React.FC<Props> = ({ step, onChageStep }) => {
 			>
 				<StyledWrapper>
 					<OnboardDot step={step} />
-					<div className="text-center h3">
+					<View style={{
+						
+					}} className="text-center h3">
 						{getTitle(step)}
-					</div>
-					<div className="text-center h5 mt-4">
+					</View>
+					<View className="text-center h5 mt-4">
 						{getText(step)}
-					</div>
+					</View>
 					<StyledImg src={getImage(step)} width="100%" alt="onbording" />
 				</StyledWrapper>
 			</button>

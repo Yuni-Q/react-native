@@ -64,8 +64,8 @@ export const StyledSubTitle = styled.View`
 
 export const StyledCardFrameWrapper = styled.View`
     max-width: 287px;
-    width: calc(100vw - 64px);
-    box-shadow: 0 0 10px 0 rgb(231, 188, 158);
+    /* width: calc(100vw - 64px); */
+    /* box-shadow: 0 0 10px 0 rgb(231, 188, 158); */
     border-radius: 11px;
     position: relative;
     display: flex;
@@ -75,7 +75,8 @@ export const StyledCardFrameWrapper = styled.View`
 `;
 
 export const StyledCardFrame = styled.Image`
-    width: calc(100% - 32px);
+    /* width: calc(100% - 32px); */
+    /* width: 200px; */
     margin: 12px;
 `;
 
@@ -98,7 +99,7 @@ export const StyledBottomButton = styled.Button<{width: number}>`
     background-color: rgb(222, 226, 230);
     color: rgb(212, 161, 125);
     border-radius: 30px;
-    box-shadow: 0 0 10px 0 rgb(252, 222, 227);
+    /* box-shadow: 0 0 10px 0 rgb(252, 222, 227); */
 `;
 
 export const StyledBody = styled.View`
@@ -125,7 +126,7 @@ export const StyledFileInputButton = styled.View`
     border-radius: 20px;
     background-color: #fff;
     color: rgb(212, 161, 125);
-    box-shadow: 0 0 10px 0 rgb(252, 222, 227);
+    /* box-shadow: 0 0 10px 0 rgb(252, 222, 227); */
 }
 & > input {
     display: none;
@@ -133,9 +134,9 @@ export const StyledFileInputButton = styled.View`
 `;
 
 export const StyldContentComponent = styled.View`
-    background: initial;
+    /* background: initial; */
     z-index: 10;
-    width: calc(100% - 64px);
+    /* width: calc(100% - 64px); */
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -147,9 +148,9 @@ export const StyldContentComponent = styled.View`
     height: 100%;
 `;
 export const StyledFileInputImage = styled.View`
-background: initial;
+/* background: initial; */
 & > label {
-    background: initial;
+    /* background: initial; */
 }
 & > input {
     display: none;
@@ -173,13 +174,13 @@ export const StyledDotButton = styled.Button<{active: boolean}>`
 `;
 
 export const StyledPart = styled.Image`
-    width: 70%;
-    background: initial;
+    width: 80%;
+    height: 100%;
+    /* background: initial; */
     z-index: 100;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* top: 50%;
+    left: 50%; */
 `;
 
 // export const StyledCarousel = styled(Carousel)`
@@ -209,13 +210,13 @@ export const StyledFooter = styled.View`
 `;
 
 export const StyledHr = styled.View`
-	width: calc(100% - 32px);
+	/* width: calc(100% - 32px); */
 	margin: 26px 16px 0;
 	border: 1px solid rgb(255, 223, 223);
 `;
 
 export const StyledRow = styled.View`
-	width: calc(100% - 32px);
+	/* width: calc(100% - 32px); */
 	display: flex;
 	justify-content: space-between;
 	height: 52px;

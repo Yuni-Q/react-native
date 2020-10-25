@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 import motiLogo from '../assets/images/motiLogo.png';
 import { StyledWrapper } from '../components/style/StyledComponent';
 import { useContextDispatch } from '../utils/Context';
-import Storage from '../utils/Storage';
+import MyStorage from '../utils/MyStorage';
 import * as Google from 'expo-google-app-auth';
 import icApple from '../assets/images/icApple.png'
 import Signin from '../models/Signin';
@@ -46,8 +46,8 @@ const Login: React.FC = () => {
 			if (googleData.type === 'success') {
 				/* `accessToken` is now valid and can be used to get data from the Google API with HTTP requests */
 				const {accessToken, refreshToken} = await Signin.postSignin({ accessToken: googleData.accessToken, body: {snsType: 'google'}})
-				await Storage.setKey('accessToken', accessToken);
-				await Storage.setKey('refreshToken', refreshToken);
+				await MyStorage.setKey('accessToken', accessToken);
+				await MyStorage.setKey('refreshToken', refreshToken);
 				dispatch({
           type: 'SET_TOKEN',
           accessToken,

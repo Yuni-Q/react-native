@@ -1,10 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, ImageBackground, SafeAreaView, Text } from 'react-native';
+import { AsyncStorage, ImageBackground, SafeAreaView, Text, View } from 'react-native';
 import Login from './pages/login';
 import { useContextDispatch, useContextState } from './utils/Context';
-import Storage from './utils/Storage';
+import MyStorage from './utils/MyStorage';
+import Index from './pages/index';
 
 import splash from './assets/splash.png'
 import User from './models/User';
@@ -21,9 +22,9 @@ const Main = () => {
       let user = {} as User;
       try {
 
-        await AsyncStorage.clear();
-        accessToken = await Storage.getKey('accessToken');
-        refreshToken = await Storage.getKey('refreshToken');
+        // await AsyncStorage.clear();
+        accessToken = await MyStorage.getKey('accessToken');
+        refreshToken = await MyStorage.getKey('refreshToken');
         if(accessToken) {
           user = await User.getUsersMy({ token: accessToken })
         }
@@ -47,7 +48,7 @@ const Main = () => {
           setLoading(false);
         }
       } catch(error) {
-        console.log(222, error,accessToken);
+        console.log('Main useEffect error', error);
       }
       
     }
@@ -60,7 +61,7 @@ const Main = () => {
           source={splash}
           style={{ width: "100%", height: "100%" }}>
         </ImageBackground>
-        : token ? <SafeAreaView><Text>Hi</Text></SafeAreaView> : <Login />
+        : token ? <Index /> : <Login />
       }
     </>
   );

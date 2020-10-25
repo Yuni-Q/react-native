@@ -14,7 +14,7 @@ import { PageContext } from './_app';
 const StyledQuestionWrapper = styled.div`
 	margin: 16px 0 24px;
 	flex-shrink: 0;
-	box-shadow: 0 0 10px 0 rgb(231, 188, 158);
+	/* box-shadow: 0 0 10px 0 rgb(231, 188, 158); */
 	display: flex;
 	flex-direction: column;
 	align-items: center;

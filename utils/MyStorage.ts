@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-community/async-storage";
 
-class Storage {
+class MyStorage {
   static async getKey (key: string) {
     const data = await AsyncStorage.getItem(key);
     return data;
@@ -42,4 +42,4 @@ class Storage {
 //     append,
 // }
 
-export default Storage;
+export default MyStorage;

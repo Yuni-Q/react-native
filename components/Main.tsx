@@ -1,21 +1,15 @@
-import dayjs from 'dayjs';
-import { NextPage } from 'next';
-import Link from 'next/link';
 import React, { useState } from 'react';
+import { View,Text } from 'react-native';
 import Answer from '../models/Answer';
-import Cookie from '../utils/Cookie';
 import AnswerComponent from './AnswerComponent';
-import Error from './Error';
-import Motivation from './Motivation';
-import Onboard from './Onboard';
-import { StyledDotButton, StyledDotWrapper, StyledFooter, StyledImg, StyledWrapper } from './style/StyledComponent';
+import { StyledDotButton, StyledDotWrapper, StyledWrapper } from './style/StyledComponent';
 
 interface Props {
 	answers: Answer[];
 	isTodayAnswer: boolean;
 }
 
-const Main: NextPage<Props> = () => {
+const Main: React.FC<Props> = ({answers, isTodayAnswer}) => {
 	const [step, setStep] = useState(1);
 	const [errorMessage] = useState('');
 
@@ -23,17 +17,21 @@ const Main: NextPage<Props> = () => {
 		setStep(newStep)
 	}
 
-	if (!Cookie.getOnboard() && step <= 4) {
-		return <Onboard step={step} onChageStep={onChageStep} />;
-	}
+	// if (
+	// 	// !Cookie.getOnboard() &&
+	// 	 step <= 4) {
+	// 	return <Onboard step={step} onChageStep={onChageStep} />;
+	// }
 	
 	return (
 		<StyledWrapper>
-			<MainDot answers={answers} />
-			{errorMessage && <Error errorMessage={errorMessage} />}
-			{!errorMessage && !isTodayAnswer && <Motivation />}
+			{/* <MainDot answers={answers} /> */}
+			{/* {errorMessage && <Error errorMessage={errorMessage} />} */}
+			{/* {!errorMessage && !isTodayAnswer && <Motivation />} */}
 			{!!isTodayAnswer && <AnswerComponent answers={answers} />}
-			<StyledFooter>
+			{!isTodayAnswer && <AnswerComponent answers={answers} />}
+			
+			{/* <StyledFooter>
 				<div>
 					<Link href="/album">
 						<a>
@@ -51,7 +49,7 @@ const Main: NextPage<Props> = () => {
 						</a>
 					</Link>
 				</div>
-			</StyledFooter>
+			</StyledFooter> */}
 		</StyledWrapper>
 	);
 };

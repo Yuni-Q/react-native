@@ -182,7 +182,7 @@ const StyledGenderWrapper = styled.div`
 	position: relative;
 	width: 30%;
 	flex-grow: 1;
-	box-shadow: 0 0 10px 0 rgb(231, 188, 158);
+	/* box-shadow: 0 0 10px 0 rgb(231, 188, 158); */
 	border-radius: 11px;
 	display: flex;
 	flex-direction: column;
