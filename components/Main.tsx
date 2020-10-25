@@ -4,6 +4,7 @@ import Answer from '../models/Answer';
 import AnswerComponent from './AnswerComponent';
 import { StyledDotButton, StyledDotWrapper, StyledFooter, StyledImg, StyledWrapper } from './style/StyledComponent';
 import Motivation from './Motivation';
+import Error from './Error';
 import dayjs from 'dayjs';
 import normal from '../assets/images/normal.png'
 import icProfileToucharea from '../assets/images/icProfileToucharea.png'
@@ -15,7 +16,7 @@ interface Props {
 
 const Main: React.FC<Props> = ({answers, isTodayAnswer}) => {
 	const [step, setStep] = useState(1);
-	const [errorMessage] = useState('');
+	const [errorMessage] = useState('1');
 
 	const onChageStep = (newStep: number) => {
 		setStep(newStep)
@@ -30,7 +31,7 @@ const Main: React.FC<Props> = ({answers, isTodayAnswer}) => {
 	return (
 		<StyledWrapper>
 			<MainDot answers={answers} />
-			{/* {errorMessage && <Error errorMessage={errorMessage} />} */}
+			{errorMessage && <Error errorMessage={errorMessage} />}
 			{!errorMessage && !isTodayAnswer && <Motivation />}
 			{!errorMessage && !!isTodayAnswer && <AnswerComponent answers={answers} />}
 			<StyledFooter>
@@ -42,7 +43,7 @@ const Main: React.FC<Props> = ({answers, isTodayAnswer}) => {
 					</Link> */}
 				</View>
 				<View>
-					<Text style={{color: '#fff'}}>{dayjs().format('YYYY. MM. DD')}</Text>
+					<Text style={{color: '#f1dbcd'}}>{dayjs().format('YYYY. MM. DD')}</Text>
 				</View>
 				<View>
 					{/* <Link href="/my"> */}
@@ -68,7 +69,7 @@ const MainDot: React.FC<MainDotProps> = ({answers}) => {
 			{[1, 2, 3, 4, 5, 6].map((num, index) => {
 				return (
 					<View style={{margin: 16}} key={num}>
-						<Text style={{color: '#fff'}}>{num}th</Text>
+						<Text style={{color: '#f1dbcd'}}>{num}th</Text>
 						<StyledDotButton
 							type="button"
 							key={num}

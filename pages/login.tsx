@@ -13,7 +13,7 @@ import Signin from '../models/Signin';
 
 
 const StyledAppleLoginButton = styled.View`
-	background-color: #fff;
+	background-color: #f1dbcd;
 	width: 260px;
 	height: 44px;
 	display: flex;
@@ -25,12 +25,12 @@ const StyledAppleLoginButton = styled.View`
 	& > Image {
 		width: 22px;
 		height: 22px;
-		background-color: #fff;
+		background-color: #f1dbcd;
 	}
 
 	& > View {
 		font-size: 14px;
-		background-color: #fff;
+		background-color: #f1dbcd;
 	}
 `;
 
@@ -70,7 +70,7 @@ const Login: React.FC = () => {
 						login();
 					}}
 					style={{
-						backgroundColor: '#fff',
+						backgroundColor: '#f1dbcd',
 						width: width - 16 - 16,
 						height: 44,
 						display: 'flex',

@@ -10,18 +10,18 @@ const Motivation: React.FC = () => {
 			{/* <Link href="/question" > */}
 				{/* <a> */}
 					<StyledCardFrameWrapper>
-						<View style={{marginTop: 32}}><Text style={{color: '#fff'}}>Motivation</Text></View>
+						<View style={{marginTop: 32}}><Text style={{color: '#f1dbcd'}}>Motivation</Text></View>
 						<View style={{margin: 32}}>
 						<StyledImg style={{ width: 202, height: 202}} source={imgQuestion} />
 						</View>
 						<View style={{marginLeft: 32, marginRight: 32}}>
-							<Text style={{marginTop: 32, color: '#fff', textAlign: 'center'}}>
+							<Text style={{marginTop: 32, color: '#f1dbcd', textAlign: 'center'}}>
 								Today’s
 							</Text>
-							<Text style={{marginTop: 8,color: '#fff',  textAlign: 'center'}}>
+							<Text style={{marginTop: 8,color: '#f1dbcd',  textAlign: 'center'}}>
 								your
 							</Text>
-							<Text style={{marginTop: 8, marginBottom: 32, color: '#fff',  textAlign: 'center'}}>
+							<Text style={{marginTop: 8, marginBottom: 32, color: '#f1dbcd',  textAlign: 'center'}}>
 								Question
 							</Text>
 						</View>

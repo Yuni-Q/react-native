@@ -25,7 +25,7 @@ const Error: React.FC<Props> = ({ internet }) => {
       </Text>
       <TouchableOpacity
         style={{
-          backgroundColor: '#fff',
+          backgroundColor: '#f1dbcd',
           width: 112,
           height: 40,
           display: 'flex',

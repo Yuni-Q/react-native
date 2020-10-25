@@ -1,4 +1,4 @@
-export const W000 = '#fff';
+export const W000 = '#f1dbcd';
 
 export const CG100 = '#F8F9FA';
 export const CG200 = '#ECEEF2';

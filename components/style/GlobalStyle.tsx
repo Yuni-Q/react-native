@@ -106,7 +106,7 @@ const GlobalStyle = createGlobalStyle`
     }
     &:focus::-ms-value {
       color: #212329;
-      background-color: #fff;
+      background-color: #f1dbcd;
     }
   }
 

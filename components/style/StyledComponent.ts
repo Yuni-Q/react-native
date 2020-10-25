@@ -94,7 +94,7 @@ export const StyledTextAreaWrapper = styled.TextInput<{imgSrc: string;}>`
 `;
 
 export const StyledBottomButton = styled.Button<{width: number}>`
-    display: block;
+    /* display: block; */
     margin: 24px 0 36px;
     width: ${({width}) => width}px;
     height: 40px;
@@ -126,7 +126,7 @@ export const StyledFileInputButton = styled.View`
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: #f1dbcd;
     color: rgb(212, 161, 125);
     /* box-shadow: 0 0 10px 0 rgb(252, 222, 227); */
 }

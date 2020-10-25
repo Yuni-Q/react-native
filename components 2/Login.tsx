@@ -55,7 +55,7 @@ const Login: React.FC<Props> = ({ setToken }) => {
             login();
           }}
           style={{
-            backgroundColor: '#fff',
+            backgroundColor: '#f1dbcd',
             width: width - 16 - 16,
             height: 44,
             display: 'flex',
