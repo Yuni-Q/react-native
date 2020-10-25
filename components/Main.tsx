@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { View,Text } from 'react-native';
 import Answer from '../models/Answer';
 import AnswerComponent from './AnswerComponent';
-import { StyledDotButton, StyledDotWrapper, StyledWrapper } from './style/StyledComponent';
+import { StyledDotButton, StyledDotWrapper, StyledFooter, StyledImg, StyledWrapper } from './style/StyledComponent';
+// import Error from './Error';
+import dayjs from 'dayjs';
+import normal from '../assets/images/normal.png'
+import icProfileToucharea from '../assets/images/icProfileToucharea.png'
 
 interface Props {
 	answers: Answer[];
@@ -28,28 +32,27 @@ const Main: React.FC<Props> = ({answers, isTodayAnswer}) => {
 			<MainDot answers={answers} />
 			{/* {errorMessage && <Error errorMessage={errorMessage} />} */}
 			{/* {!errorMessage && !isTodayAnswer && <Motivation />} */}
-			{!!isTodayAnswer && <AnswerComponent answers={answers} />}
-			{!isTodayAnswer && <AnswerComponent answers={answers} />}
-			
-			{/* <StyledFooter>
-				<div>
-					<Link href="/album">
-						<a>
-							<StyledImg src="/assets/images/normal.png" width="24" height="24" alt="normal" />
-						</a>
-					</Link>
-				</div>
-				<div className="h3">
-					<span>{dayjs().format('YYYY. MM. DD')}</span>
-				</div>
-				<div>
-					<Link href="/my">
-						<a>
-							<StyledImg src="/assets/images/icProfileToucharea.png" width="24" height="24" alt="icProfileToucharea" />
-						</a>
-					</Link>
-				</div>
-			</StyledFooter> */}
+			{!errorMessage && !!isTodayAnswer && <AnswerComponent answers={answers} />}
+			{!errorMessage && !isTodayAnswer && <AnswerComponent answers={answers} />}
+			<StyledFooter>
+				<View>
+					{/* <Link href="/album">
+						<a> */}
+							<StyledImg source={normal} style={{width: 24, height: 24}} />
+						{/* </a>
+					</Link> */}
+				</View>
+				<View>
+					<Text style={{color: '#fff'}}>{dayjs().format('YYYY. MM. DD')}</Text>
+				</View>
+				<View>
+					{/* <Link href="/my"> */}
+						{/* <a> */}
+							<StyledImg source={icProfileToucharea} style={{width: 24, height: 24}} />
+						{/* </a> */}
+					{/* </Link> */}
+				</View>
+			</StyledFooter>
 		</StyledWrapper>
 	);
 };

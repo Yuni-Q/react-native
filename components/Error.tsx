@@ -1,16 +1,19 @@
-import { useRouter } from 'next/router';
 import React from 'react';
+import { View, Text } from 'react-native';
 import { StyledBody, StyledBottomButton, StyledImg } from './style/StyledComponent';
 
 const getText = (errorMessage?: string) => {
-	if(errorMessage) {
+	if (errorMessage) {
 		return '알 수 없는 오류가 발생했습니다.'
 	}
 	return (
 		<>
-			인터넷이 불안정해요.
-			<br />
-			확인 후 재접속 해주세요.
+			<Text>
+				인터넷이 불안정해요.
+			</Text>
+			<Text>
+				확인 후 재접속 해주세요.
+		</Text>
 		</>
 	)
 
@@ -21,26 +24,24 @@ interface Props {
 }
 
 const Error: React.FC<Props> = ({ errorMessage }) => {
-	const router = useRouter();
 
-	const onClick = () => router.reload();
+	// const onClick = () => router.reload();
 
 	return (
 		<StyledBody className="justify-content-center">
-			<div>
+			<View>
 				<StyledImg
 					width={errorMessage ? "178" : "114"}
 					height={errorMessage ? "178" : "114"}
-					src={errorMessage ? '/assets/images/unknownError.png' : '/assets/images/internet.png'}
-					alt="error"
+					source={errorMessage ? '/assets/images/unknownError.png' : '/assets/images/internet.png'}
 				/>
-			</div>
-			<div>
-				<div className="text-align-center mt-6 mb-8">
+			</View>
+			<View>
+				<View style={{ marginTop: 24, marginBottom: 32 }}>
 					{getText(errorMessage)}
-				</div>
-			</div>
-			<StyledBottomButton type="button" width={112} onClick={onClick}>
+				</View>
+			</View>
+			<StyledBottomButton type="button" width={112}>
 				재접속
 			</StyledBottomButton>
 		</StyledBody>
