@@ -159,18 +159,19 @@ export const StyledFileInputImage = styled.View`
 
 export const StyledDotWrapper = styled.View`
     display: flex; 
+    flex-direction: row;
     margin: 24px 24px 16px;
     justify-content: center;
 `;
 
-export const StyledDotButton = styled.Button<{active: boolean}>`
+export const StyledDotButton = styled.TouchableOpacity<{active: boolean}>`
     width: 8px;
     height: 8px;
     border-radius: 8px;
     background-color: ${({active}) => active ? '#d4a17d' : 'rgb(68, 68, 68)'};
     margin: 8px 8px;
     font-size: 0;
-    display: block;
+    /* display: block; */
 `;
 
 export const StyledPart = styled.Image`

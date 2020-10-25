@@ -25,7 +25,7 @@ const Main: React.FC<Props> = ({answers, isTodayAnswer}) => {
 	
 	return (
 		<StyledWrapper>
-			{/* <MainDot answers={answers} /> */}
+			<MainDot answers={answers} />
 			{/* {errorMessage && <Error errorMessage={errorMessage} />} */}
 			{/* {!errorMessage && !isTodayAnswer && <Motivation />} */}
 			{!!isTodayAnswer && <AnswerComponent answers={answers} />}
@@ -65,14 +65,14 @@ const MainDot: React.FC<MainDotProps> = ({answers}) => {
 		<StyledDotWrapper>
 			{[1, 2, 3, 4, 5, 6].map((num, index) => {
 				return (
-					<div className="my-4 mx-4" key={num}>
-						<div className="text-center">{num}th</div>
+					<View style={{margin: 16}} key={num}>
+						<Text style={{color: '#fff'}}>{num}th</Text>
 						<StyledDotButton
 							type="button"
 							key={num}
 							active={!!answers[index]}
 						/>
-					</div>
+					</View>
 				);
 			})}
 		</StyledDotWrapper>
