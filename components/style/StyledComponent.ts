@@ -66,6 +66,8 @@ export const StyledCardFrameWrapper = styled.View`
     max-width: 287px;
     /* width: calc(100vw - 64px); */
     /* box-shadow: 0 0 10px 0 rgb(231, 188, 158); */
+    border-color: rgb(231, 188, 158);
+    border-width: 1px;
     border-radius: 11px;
     position: relative;
     display: flex;
@@ -107,7 +109,7 @@ export const StyledBody = styled.View`
     flex: 1;
     display: flex; 
     flex-direction: column; 
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 `
 

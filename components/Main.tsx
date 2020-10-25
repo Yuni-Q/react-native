@@ -3,7 +3,7 @@ import { View,Text } from 'react-native';
 import Answer from '../models/Answer';
 import AnswerComponent from './AnswerComponent';
 import { StyledDotButton, StyledDotWrapper, StyledFooter, StyledImg, StyledWrapper } from './style/StyledComponent';
-// import Error from './Error';
+import Motivation from './Motivation';
 import dayjs from 'dayjs';
 import normal from '../assets/images/normal.png'
 import icProfileToucharea from '../assets/images/icProfileToucharea.png'
@@ -31,9 +31,8 @@ const Main: React.FC<Props> = ({answers, isTodayAnswer}) => {
 		<StyledWrapper>
 			<MainDot answers={answers} />
 			{/* {errorMessage && <Error errorMessage={errorMessage} />} */}
-			{/* {!errorMessage && !isTodayAnswer && <Motivation />} */}
+			{!errorMessage && !isTodayAnswer && <Motivation />}
 			{!errorMessage && !!isTodayAnswer && <AnswerComponent answers={answers} />}
-			{!errorMessage && !isTodayAnswer && <AnswerComponent answers={answers} />}
 			<StyledFooter>
 				<View>
 					{/* <Link href="/album">

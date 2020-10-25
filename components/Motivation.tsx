@@ -1,32 +1,36 @@
-import Link from 'next/link';
 import React from 'react';
+import { View, Text } from 'react-native';
 import { StyledBody, StyledCardFrameWrapper, StyledImg } from './style/StyledComponent';
+import imgQuestion from '../assets/images/imgQuestion.png'
 
 const Motivation: React.FC = () => {
 
 	return (
-		<StyledBody className="justify-content-center">
-			<Link href="/question" >
-				<a>
+		<StyledBody>
+			{/* <Link href="/question" > */}
+				{/* <a> */}
 					<StyledCardFrameWrapper>
-						<div className="mt-8">Motivation</div>
-						<StyledImg className="mt-8" src="/assets/images/imgQuestion.png" width="202" height="202" alt="imgQuestion" />
-						<div className="text-align-center my-8">
-							<div>
+						<View style={{marginTop: 32}}><Text style={{color: '#fff'}}>Motivation</Text></View>
+						<View style={{margin: 32}}>
+						<StyledImg style={{ width: 202, height: 202}} source={imgQuestion} />
+						</View>
+						<View style={{marginLeft: 32, marginRight: 32}}>
+							<Text style={{marginTop: 32, color: '#fff', textAlign: 'center'}}>
 								Today’s
-							</div>
-							<div className="mt-2">
+							</Text>
+							<Text style={{marginTop: 8,color: '#fff',  textAlign: 'center'}}>
 								your
-							</div>
-							<div className="mt-2">
+							</Text>
+							<Text style={{marginTop: 8, marginBottom: 32, color: '#fff',  textAlign: 'center'}}>
 								Question
-							</div>
-						</div>
+							</Text>
+						</View>
 					</StyledCardFrameWrapper>
-				</a>
-			</Link>
+				{/* </a> */}
+			{/* // </Link> */}
 		</StyledBody>
 	);
 };
 
 export default Motivation;
+
